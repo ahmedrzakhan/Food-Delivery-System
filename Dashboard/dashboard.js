@@ -29,7 +29,7 @@ const restaurant = [
       { item: "Momo", price: 1000 },
       { item: "Mato", price: 1000 },
     ],
-    image : "https://curlytales.com/wp-content/uploads/2019/08/north-indian-food-2-1-735x413.jpg",
+    image : "https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80",
   },
   {
     name: "Zaika",
@@ -53,7 +53,7 @@ const restaurant = [
       { item: "Momo", price: 1000 },
       { item: "Mato", price: 1000 },
     ],
-    image : "https://curlytales.com/wp-content/uploads/2019/08/north-indian-food-2-1-735x413.jpg",
+    image : "https://images.unsplash.com/photo-1545247181-516773cae754?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
   },
   {
     name: "Gyani's Restaurant",
@@ -61,7 +61,7 @@ const restaurant = [
       { item: "Momo", price: 1000 },
       { item: "Mato", price: 1000 },
     ],
-    image : "https://curlytales.com/wp-content/uploads/2019/08/north-indian-food-2-1-735x413.jpg",
+    image : "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=376&q=80",
   },
   {
     name: "Blue Diamond",
@@ -69,7 +69,7 @@ const restaurant = [
       { item: "Momo", price: 1000 },
       { item: "Mato", price: 1000 },
     ],
-    image : "https://curlytales.com/wp-content/uploads/2019/08/north-indian-food-2-1-735x413.jpg",
+    image : "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80",
   },
   {
     name: "Neelam Restaurant",
@@ -77,7 +77,7 @@ const restaurant = [
       { item: "Momo", price: 1000 },
       { item: "Mato", price: 1000 },
     ],
-    image : "https://curlytales.com/wp-content/uploads/2019/08/north-indian-food-2-1-735x413.jpg",
+    image : "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
   },
   
  
@@ -97,11 +97,11 @@ window.addEventListener("DOMContentLoaded", () => {
     let cont = document.getElementById("restaurants")
     // creating row
     let row = document.createElement("div")
-     row.setAttribute("class", "row")
+     row.setAttribute("class", "row container")
     for(let i = 0; i < array.length;i++){
       //creating column for restaurants
       let col = document.createElement("div")
-      col.setAttribute("class", "col-3 mb-2")
+      col.setAttribute("class", "col-3  mb-3")
       // creating card for each restaurant
       let card = document.createElement("div")
       card.setAttribute("class","card")
@@ -113,9 +113,9 @@ window.addEventListener("DOMContentLoaded", () => {
       image.style.borderRadius = "5px"
       // for name of restaurant
       let cardFooter = document.createElement("div")
-      cardFooter.setAttribute("class", "card-footer p-2")
+      cardFooter.setAttribute("class", "card-footer p-2 text-truncate")
       cardFooter.textContent = array[i].name
-      
+     
       card.append(image,cardFooter)
 
       col.append(card)

@@ -17,56 +17,58 @@
 
 <body>
   <!-- Main Container -->
-  <div class="container-fluid">
-    <!-- Navbar Header -->
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-3 mb-2 bg-white rounded">
-      <a class="navbar-brand text-danger" href="#">
-        <h3>FOOD FOOD</h3>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup2"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="fas fa-bars"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup2">
-        <div class="navbar-nav ml-auto h5 font-weight-light">
-          <a class="nav-item nav-link text-dark px-4" href="../Admin/admin.html">Admin</a>
-          <a class="nav-item nav-link text-dark px-4" href="#">Recruiter</a>
-          <a class="nav-item nav-link font-weight-light text-white bg-danger rounded mr-4 px-5"
-            href="../Home/home.html">Logout</a>
+  <div>
+    <div class="container-fluid">
+      <!-- Navbar Header -->
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-3 mb-2 bg-white rounded">
+        <a class="navbar-brand text-danger" href="#">
+          <h3>FOOD FOOD</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup2"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="fas fa-bars"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup2">
+          <div class="navbar-nav ml-auto h5 font-weight-light">
+            <a class="nav-item nav-link text-dark px-4" href="../Admin/admin.html">Admin</a>
+            <a class="nav-item nav-link text-dark px-4" href="#">Recruiter</a>
+            <a class="nav-item nav-link font-weight-light text-white bg-danger rounded mr-4 px-5"
+              href="../Home/home.html">Logout</a>
+          </div>
         </div>
-      </div>
-    </nav>
-    <!-- row -->
-    <div class="row mb-3">
-      <!-- column1 -->
-      <div class="col-6">
-        <img
-          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-          class="image" alt="Responsive image">
-      </div>
-      <!-- column2 -->
-      <div class="col-6 ">
-        <!-- heading for input -->
-        <h4 class="text-center margin-top text-dark">START YOUR ORDER</h4>
-        <!-- search input -->
-        <div class="container mr-5 input-group mb-3">
-          <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username"
-            aria-describedby="button-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-danger" type="button" id="button-addon2">Search</button>
+      </nav>
+      <!-- row -->
+      <div class="row mb-3">
+        <!-- column1 -->
+        <div class="col-6">
+          <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+            class="image" alt="Responsive image">
+        </div>
+        <!-- column2 -->
+        <div class="col-6 ">
+          <!-- heading for input -->
+          <h4 class="text-center margin-top text-dark">START YOUR ORDER</h4>
+          <!-- search input -->
+          <div class="container mr-5 input-group mb-3 ">
+            <input type="text" class="form-control border-danger" placeholder="Search" aria-label="Recipient's username"
+              aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-danger" type="button" id="button-addon2">Search</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- cards for restaurants -->
-    <div id="restaurants">
       
     </div>
-
-
+    <!-- cards for restaurants -->
+    <div class = "container" id="restaurants">
+        
+    </div>
   </div>
+  
   <!-- Javscript File -->
   <script type="text/javascript" src="dashboard.js"></script>
 </body>
