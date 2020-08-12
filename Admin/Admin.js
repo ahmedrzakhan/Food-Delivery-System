@@ -1,21 +1,32 @@
 "use strict";
 
-let menu = [];
-let restaurant = [{ menu }];
-let index = 0;
-let j = 0;
+const saveData = (items) =>
+  localStorage.setItem("restaurant", JSON.stringify(items));
+
+const loadData = () =>
+  JSON.parse(localStorage.getItem("restaurant")) || [{ menu: [] }];
+
+let restaurant = loadData();
+
+let index = -1;
+let menuId = 1;
+
+console.log("first restaurant", restaurant);
 
 window.addEventListener("DOMContentLoaded", () => {
   const addRestaurant = document.getElementById("addRestaurant");
-  addRestaurant.addEventListener("click", getName);
+  addRestaurant.addEventListener("click", () => {
+    getName();
+  });
 
-  let dashboard = document.getElementById("dashboard")
-  dashboard.addEventListener("click", toDashboard)
+  let dashboard = document.getElementById("dashboard");
+  dashboard.addEventListener("click", toDashboard);
 });
 
-const toDashboard = ()=>{
-  window.location.href = "dashboard.html"
-}
+const toDashboard = () => {
+  window.location.href = "dashboard.html";
+};
+
 const getName = () => {
   const name = document.getElementById("name").value;
 
@@ -24,14 +35,12 @@ const getName = () => {
 };
 
 const addName = (name) => {
-  restaurant[index].name = name;
-  let pay = {
-    item: "qq",
-    price: 100,
-  };
-  //   restaurant[index].menu.push(pay);
 
-  console.log("restaurant", restaurant);
+  console.log("add Restaurant", restaurant);
+  console.log("name", name);
+  index++;
+  console.log("index", index);
+  restaurant[index] = name;
 };
 
 const createTable = () => {
@@ -67,15 +76,12 @@ const createInputRow = () => {
 
   const row = document.createElement("tr");
   const item = document.createElement("td");
-  item.name = "item-value";
-  item.innerHTML = `<input type="text">`;
+  item.innerHTML = `<input type="text" id = ${menuId}"item" class="form-control" >`;
 
   const price = document.createElement("td");
-  price.name = "price-value";
-  price.innerHTML = `<input type="text">`;
+  price.innerHTML = `<input type="text" id = ${menuId}"price" class="form-control" >`;
 
   var add = document.createElement("button");
-  add.name = "button";
   add.setAttribute("class", "btn btn-success btn-sm mt-2");
   add.textContent = "Add";
   add.addEventListener("click", () => {
@@ -89,6 +95,21 @@ const createInputRow = () => {
 };
 
 const test = () => {
-  let item = event.target.previousElementSibling.value;
+  let item = document.getElementById(`${menuId}"item"`).value;
   console.log("item", item);
+
+  let price = document.getElementById(`${menuId}"price"`).value;
+  console.log("price", price);
+
+  let payload = {
+    item,
+    price: Number(price),
+  };
+
+  restaurant[index].menu.push(payload);
+
+  saveData(restaurant);
+
+  console.log("restaurant", restaurant);
+  menuId++;
 };
