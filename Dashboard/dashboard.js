@@ -46,7 +46,7 @@ let restaurant = [
       { item: "Pizza", price: 200 },
     ],
     image:
-      "https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1536305030588-45dc07a2a372?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
     alt: "Zaika",
   },
   {
@@ -56,7 +56,7 @@ let restaurant = [
       { item: "Garlen", price: 200 },
     ],
     image:
-      "https://img.freepik.com/free-photo/concept-indian-cuisine-baked-chicken-wings-legs-honey-mustard-sauce-serving-dishes-restaurant-black-plate-indian-spices-wooden-table-background-image_127425-18.jpg?size=626&ext=jpg",
+      "https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80",
     alt: "Franks Restaurant",
   },
   {
@@ -192,4 +192,3 @@ const createQuery = (name) => {
   let url = "../Menu/menu.html";
   window.location.assign(url + '?' + params.toString());
 }
-
