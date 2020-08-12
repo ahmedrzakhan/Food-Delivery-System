@@ -3,8 +3,7 @@
 const saveData = (items) =>
   localStorage.setItem("restaurant", JSON.stringify(items));
 
-const loadData = () =>
-  JSON.parse(localStorage.getItem("restaurant")) || [{ menu: [] }];
+const loadData = () => JSON.parse(localStorage.getItem("restaurant")) || [];
 
 let restaurant = loadData();
 
@@ -35,12 +34,14 @@ const getName = () => {
 };
 
 const addName = (name) => {
-
   console.log("add Restaurant", restaurant);
   console.log("name", name);
   index++;
   console.log("index", index);
-  restaurant[index] = name;
+
+  let payload = { name: name, menu: [] };
+
+  restaurant.push(payload);
 };
 
 const createTable = () => {
