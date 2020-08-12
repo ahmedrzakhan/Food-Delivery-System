@@ -8,8 +8,14 @@ let j = 0;
 window.addEventListener("DOMContentLoaded", () => {
   const addRestaurant = document.getElementById("addRestaurant");
   addRestaurant.addEventListener("click", getName);
+
+  let dashboard = document.getElementById("dashboard")
+  dashboard.addEventListener("click", toDashboard)
 });
 
+const toDashboard = ()=>{
+  window.location.href = "dashboard.html"
+}
 const getName = () => {
   const name = document.getElementById("name").value;
 
