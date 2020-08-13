@@ -1,3 +1,5 @@
+"use strict";
+
 const restaurant = [
   {
     name: "Galaxy",
@@ -37,7 +39,7 @@ for (let i = 0; i < restaurant.length; i++) {
   console.log(i);
 
   for (let j = 0; j < restaurant[i].menu.length; j++) {
-  console.log(i);
+    console.log(i);
 
     // console.log(restaurant[i].menu[j].item);
     // console.log(restaurant[i].menu[j].price);

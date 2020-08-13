@@ -15,15 +15,7 @@ console.log("first restaurant", restaurant);
 window.addEventListener("DOMContentLoaded", () => {
   const addRestaurant = document.getElementById("addRestaurant");
   addRestaurant.addEventListener("click", getData);
-
-  let dashboard = document.getElementById("dashboard");
-  dashboard.addEventListener("click", toDashboard);
 });
-
-const toDashboard = () => {
-  window.location.href = "dashboard.html";
-};
-
 
 const getData = () => {
   const name = document.getElementById("name").value;
@@ -35,9 +27,7 @@ const getData = () => {
 
 const addData = (name, image) => {
   console.log("add Restaurant", restaurant);
-  console.log("name", name);
   index++;
-  console.log("index", index);
 
   let payload = { name: name, menu: [], image: image };
 
@@ -86,7 +76,7 @@ const createInputRow = () => {
   add.setAttribute("class", "btn btn-success btn-sm mt-2");
   add.textContent = "Add";
   add.addEventListener("click", () => {
-    test();
+    getValues();
     createInputRow();
   });
 
@@ -95,12 +85,10 @@ const createInputRow = () => {
   table.append(row);
 };
 
-const test = () => {
+const getValues = () => {
   let item = document.getElementById(`${menuId}"item"`).value;
-  console.log("item", item);
 
   let price = document.getElementById(`${menuId}"price"`).value;
-  console.log("price", price);
 
   let payload = {
     item,
@@ -110,7 +98,5 @@ const test = () => {
   restaurant[index].menu.push(payload);
 
   saveData(restaurant);
-
-  console.log("restaurant", restaurant);
   menuId++;
 };
