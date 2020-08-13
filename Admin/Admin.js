@@ -14,9 +14,7 @@ console.log("first restaurant", restaurant);
 
 window.addEventListener("DOMContentLoaded", () => {
   const addRestaurant = document.getElementById("addRestaurant");
-  addRestaurant.addEventListener("click", () => {
-    getName();
-  });
+  addRestaurant.addEventListener("click", getData);
 
   let dashboard = document.getElementById("dashboard");
   dashboard.addEventListener("click", toDashboard);
@@ -26,20 +24,22 @@ const toDashboard = () => {
   window.location.href = "dashboard.html";
 };
 
-const getName = () => {
-  const name = document.getElementById("name").value;
 
-  addName(name);
+const getData = () => {
+  const name = document.getElementById("name").value;
+  const image = document.getElementById("image").value;
+
+  addData(name, image);
   createTable();
 };
 
-const addName = (name) => {
+const addData = (name, image) => {
   console.log("add Restaurant", restaurant);
   console.log("name", name);
   index++;
   console.log("index", index);
 
-  let payload = { name: name, menu: [] };
+  let payload = { name: name, menu: [], image: image };
 
   restaurant.push(payload);
 };

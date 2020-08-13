@@ -166,13 +166,13 @@ const goToMenu = () => {
   // console.log("data", data);
   let query;
   const name = event.target.textContent;
-  const alt = event.target.alt;
+  const alt = event.target.parentElement.textContent;
 
   // console.log("name", name);
   // console.log("alt", alt);
 
   for (let i = 0; i < data.length; i++) {
-    if (data[i].name === name || data[i].alt === alt) {
+    if (data[i].name === name || data[i].name === alt) {
       // console.log("yolo", data[i].name, data[i].alt)
       query = data[i].name;
       break;
