@@ -29,7 +29,12 @@ const addData = (name, image) => {
   console.log("add Restaurant", restaurant);
   index++;
 
-  let payload = { name: name, menu: [], image: image };
+  let payload = {
+    id: index + 1,
+    name: name,
+    menu: [],
+    image: image,
+  };
 
   restaurant.push(payload);
 };

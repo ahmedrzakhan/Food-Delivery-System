@@ -1,11 +1,16 @@
 "use strict";
 
+const cart = [];
+
 const getData = () => JSON.parse(localStorage.getItem("restaurant"));
+
+const clearCart = () => localStorage.removeItem("cart");
 
 const data = getData();
 console.log(data);
 
 window.addEventListener("DOMContentLoaded", () => {
+  clearCart()
   getQuery();
 });
 
@@ -18,6 +23,14 @@ const getQuery = () => {
   getRestaurant(name);
 };
 
+const getNameFromUrl = () => {
+  let query = window.location.search;
+
+  let url = new URLSearchParams(query);
+  let name = url.get("name");
+
+  return name;
+}
 const getName = (name) => {
   let cont = document.getElementById("restaurants");
   for (let i = 0; i < data.length; i++) {
@@ -32,9 +45,9 @@ const getName = (name) => {
       image.setAttribute("class", "my-4 image");
 
       let header = document.createElement("h3");
-      header.setAttribute("class", "m-2");
+      header.setAttribute("class", "m-2 text-success");
       header.textContent = data[i].name;
-      console.log(data[i].image);
+      // console.log(data[i].image);
 
       col.append(image, header);
       row.append(col);
@@ -50,7 +63,7 @@ const getRestaurant = (name) => {
     if (name === data[i].name) {
       item = data[i].menu;
 
-      console.log("item", item);
+      // console.log("item", item);
       break;
     }
   }
@@ -105,6 +118,8 @@ const createUI = (item) => {
     );
     button.textContent = "ADD+";
 
+    button.addEventListener("click", addItem);
+
     cardBody2.append(button);
     card2.append(cardBody2);
     col2.append(card2);
@@ -115,3 +130,71 @@ const createUI = (item) => {
     cont.append(parentRow);
   }
 };
+
+const addItem = () => {
+  let text =
+    event.target.parentElement.parentElement.parentElement.parentElement
+      .children[0].textContent;
+  console.log("text", text);
+
+  let price = Number(text.split(".")[1].trim());
+  console.log("price", price);
+
+  let item = text.split(".")[0].split("Rs")[0];
+  console.log("item", item);
+
+  event.target.textContent = "Added";
+  event.target.setAttribute("class", "btn btn-outline-success shadow p-1 mb-2 float-right");
+
+  const payload = {
+    price,
+    item,
+  };
+
+  addToCart(payload);
+};
+
+const addToCart = (payload) => {
+  cart.push(payload);
+  console.log("cart", cart);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  if ( cart.length === 1 ) {
+    createCart();
+  }
+};
+
+const createCart = () => {
+
+  const restaurants = document.getElementById("restaurants");
+  const row = document.createElement("div");
+  row.setAttribute("class", "row");
+  const col = document.createElement("div");
+  row.setAttribute("class", "col-lg-2 offset-lg-9");
+  const cart = document.getElementById("cart");
+  const button = document.createElement("button");
+  button.setAttribute("class", "btn btn-danger")
+  button.textContent = "Go to Cart";
+
+  button.addEventListener("click", navigateToCart)
+
+  cart.append(button);
+  col.append(cart);
+  row.append(col);
+  restaurants.append(row)
+}
+
+const navigateToCart = () => {
+  console.log("oo")
+
+  let name = getNameFromUrl();
+
+  let params = new URLSearchParams();
+  params.set("name", name);
+
+  console.log("params", params.toString());
+  // location = "../Menu/menu.html"
+  let url = "../Bill/bill.html";
+  window.location.assign(url + "?" + params.toString());
+}
