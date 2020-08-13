@@ -7,7 +7,7 @@ const loadData = () => JSON.parse(localStorage.getItem("restaurant")) || [];
 
 let restaurant = loadData();
 
-let index = -1;
+let index = restaurant.length - 1;
 let menuId = 1;
 
 console.log("first restaurant", restaurant);
