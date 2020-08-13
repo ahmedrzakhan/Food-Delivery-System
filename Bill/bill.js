@@ -1,137 +1,91 @@
-const getRestaurant = () => {
-    let cont = document.getElementById("bill")
+window.addEventListener("DOMContentLoaded", () => {
+  getQuery();
+});
 
-    let bill = document.createElement("h3")
-    bill.setAttribute("class", "text-center m-2 text-danger")
-    bill.textContent = "BILL"
+const getData = () => JSON.parse(localStorage.getItem("restaurant"));
 
-    let parentRow = document.createElement("div")
-    parentRow.setAttribute("class", "row mt-2")
+const data = getData();
 
-    let parentCol = document.createElement("div")
-    parentCol.setAttribute("class", "col-8 offset-2")
+const getCartData = () => JSON.parse(localStorage.getItem("cart"));
 
-    let row = document.createElement("div")
-    row.setAttribute("class", "row")
+const cart = getCartData() || [];
+console.log("cart", cart);
 
-    let col1 = document.createElement("div")
-    col1.setAttribute("class", "col-3")
+const getQuery = () => {
+  let query = window.location.search;
 
-    let image = document.createElement("img")
-    image.setAttribute("class", "image-size mt-3 rounded")
-    image.src = "..."
-    image.alt = "..."
+  let url = new URLSearchParams(query);
+  let name = url.get("name");
+  console.log("name", name);
+  getRestaurantData(name);
+};
 
-    col1.append(image)
+const getRestaurantData = (name) => {
+  let item;
+  for (let i = 0; i < data.length; i++) {
+    if (name === data[i].name) {
+      item = data[i];
 
-    let col2 = document.createElement("div")
-    col2.setAttribute("class", "col-9")
+      //   console.log("item", item);
+      break;
+    }
+  }
+  createBill(item);
+};
 
-    let header = document.createElement("h3")
-    header.setAttribute("class", "margin")
-    header.textContent = "name of restaurant"
+const createBill = (item) => {
+  console.log("item", item);
+  const bill = document.getElementById("bill");
+  let row = document.createElement("div");
+  row.setAttribute("class", "row mt-5");
 
-    col2.append(header)
+  let col = document.createElement("div");
+  col.setAttribute("class", "col-lg-8 lg-offset-4");
 
-    row.append(col1, col2)
+  const div = document.createElement("div");
 
-    parentCol.append(row)
+  const header = document.createElement("h4");
+  header.setAttribute("class", "text-center");
+  header.textContent = "Order Details";
 
-    parentRow.append(parentCol)
+  div.append(header);
 
-    cont.append(bill, parentRow)
-}
+  const name = document.createElement("h4");
+  name.setAttribute("class", "text-center mt-3");
+  name.textContent = item.name;
 
-const getItems = () => {
-    let cont = document.getElementById("items")
+  div.append(name);
 
-    let parentRow = document.createElement("div")
-    parentRow.setAttribute("class", "row mt-2")
+  var flexDiv = document.createElement("div");
 
-    let parentCol = document.createElement("div")
-    parentCol.setAttribute("class", "col-8 offset-2")
+  for (let i = 0; i < cart.length; i++) {
+    flexDiv.setAttribute("class", "d-flex justify-content-between");
 
-    let row = document.createElement("div")
-    row.setAttribute("class", "row")
+    let item = document.createElement("p");
+    item.textContent = cart[i].item;
+    let price = document.createElement("p");
+    price.textContent = cart[i].price;
 
-    let col1 = document.createElement("div")
-    col1.setAttribute("class", "col-8")
+    flexDiv.append(item, price);
+  }
 
-    let card1 = document.createElement("div")
-    card1.setAttribute("class", "card border-0")
+  let totalBill = getTotalBill(cart);
+  console.log("totalB", totalBill);
 
-    let cardBody1 = document.createElement("div")
-    cardBody1.setAttribute("class", "card-body p-2")
+  const total = document.createElement("h5");
+  total.setAttribute("class", "text-center mt-3");
+  total.textContent =  `Total: ${totalBill}`;
 
-    let item = document.createElement("p")
-    item.setAttribute("class", "p-0 m-0")
-    item.textContent = "name of item"
+  col.append(div, flexDiv, total);
+  row.append(col);
+  bill.append(row);
+};
 
-    cardBody1.append(item)
+const getTotalBill = (data) => {
+  let total = 0;
 
-    card1.append(cardBody1)
-
-    col1.append(card1)
-
-    let col2 = document.createElement("div")
-    col2.setAttribute("class", "col-4")
-
-    let card2 = document.createElement("div")
-    card2.setAttribute("class", "card border-0")
-
-    let cardBody2 = document.createElement("div")
-    cardBody2.setAttribute("class", "card-body p-2")
-
-    let price = document.createElement("small")
-    price.setAttribute("class", "text-muted p-0 m-0 float-right")
-    price.textContent = "Rs. " + "price of item"
-
-    cardBody2.append(price)
-
-    card2.append(cardBody2)
-
-    col2.append(card2)
-
-    row.append(col1,col2)
-
-    parentCol.append(row)
-
-    parentRow.append(parentCol)
-
-    cont.append(parentRow)
-
-
-}
-
-getRestaurant()
-
-getItems()
-
-
-
-
-{/* 
-        <div id = "items" class="container">
-            <div class="row mt-5">
-                <div class="col-8 offset-2">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="card border-0 ">
-                                <div class="card-body p-2">
-                                    <p class="p-0 m-0">Chicken</p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card border-0 ">
-                                <div class="card-body p-2">
-                                    <small class="text-muted p-0 m-0 float-right">Rs. 250</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> */}
+  for (let i = 0; i < data.length; i++) {
+    total = total + data[i].price;
+  }
+  return total;
+};
