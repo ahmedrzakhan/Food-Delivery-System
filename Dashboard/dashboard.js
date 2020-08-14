@@ -13,7 +13,6 @@ const toAdminPage = () => {
 
 window.addEventListener("DOMContentLoaded", () => {
   const data = getData();
-  console.log("data", data);
   displayRestaurants(data);
 });
 
@@ -50,17 +49,12 @@ function displayRestaurants(array) {
 
 const goToMenu = () => {
   const data = getData();
-  // console.log("data", data);
   let query;
   const name = event.target.textContent;
   const alt = event.target.parentElement.textContent;
 
-  // console.log("name", name);
-  // console.log("alt", alt);
-
   for (let i = 0; i < data.length; i++) {
     if (data[i].name === name || data[i].name === alt) {
-      // console.log("yolo", data[i].name, data[i].alt)
       query = data[i].name;
       break;
     }
@@ -73,8 +67,6 @@ const createQuery = (name) => {
   let params = new URLSearchParams();
   params.set("name", name);
 
-  console.log("params", params.toString());
-  // location = "../Menu/menu.html"
   let url = "../Menu/menu.html";
   window.location.assign(url + "?" + params.toString());
 };

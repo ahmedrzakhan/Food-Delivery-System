@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Bill</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="bill.css" />
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/54ad569e59.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/54ad569e59.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-3 mb-2 bg-white rounded"
+    >
+      <a class="navbar-brand text-danger" href="#">
+        <h3>F&nbsp;O&nbsp;O&nbsp;D&nbsp;</h3>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup2"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="fas fa-bars"></span>
+      </button>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm p-3 mb-2 bg-white rounded">
-        <a class="navbar-brand text-danger" href="#">
-          <h3>F&nbsp;O&nbsp;O&nbsp;D&nbsp;</h3>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup2"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="fas fa-bars"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup2">
-          <div class="navbar-nav ml-auto h5 font-weight-light">
-            <!-- <a id="admin" class="nav-item nav-link text-dark px-4" href="../Admin/admin.html">Admin</a> -->
-            <a class="nav-item nav-link text-dark px-4" href="../Dashboard/dashboard.html">Dashboard</a>
-            <a class="nav-item nav-link font-weight-light text-white bg-danger rounded mr-4 px-5" href="#">Cart</a>
-          </div>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup2">
+        <div class="navbar-nav ml-auto h5 font-weight-light">
+          <a
+            class="nav-item nav-link text-dark px-4"
+            href="../Dashboard/dashboard.html"
+            >Dashboard</a
+          >
+          <a
+            class="nav-item nav-link font-weight-light text-white bg-danger rounded mr-4 px-5"
+            href="#"
+            >Cart</a
+          >
         </div>
-      </nav>
-      
-    <div id = "bill" class="container">
-        
-    </div>
+      </div>
+    </nav>
+
+    <div id="bill" class="container"></div>
 
     <script type="text/javascript" src="bill.js"></script>
-</body>
-
+  </body>
 </html>

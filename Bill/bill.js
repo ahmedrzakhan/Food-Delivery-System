@@ -9,14 +9,12 @@ const data = getData();
 const getCartData = () => JSON.parse(localStorage.getItem("cart"));
 
 const cart = getCartData() || [];
-console.log("cart", cart);
 
 const getQuery = () => {
   let query = window.location.search;
 
   let url = new URLSearchParams(query);
   let name = url.get("name");
-  console.log("name", name);
   getRestaurantData(name);
 };
 
@@ -25,8 +23,6 @@ const getRestaurantData = (name) => {
   for (let i = 0; i < data.length; i++) {
     if (name === data[i].name) {
       item = data[i];
-
-      //   console.log("item", item);
       break;
     }
   }
@@ -34,7 +30,6 @@ const getRestaurantData = (name) => {
 };
 
 const createBill = (item) => {
-  console.log("item", item);
   const bill = document.getElementById("bill");
   let row = document.createElement("div");
   row.setAttribute("class", "row mt-5");
@@ -70,11 +65,10 @@ const createBill = (item) => {
   }
 
   let totalBill = getTotalBill(cart);
-  console.log("totalB", totalBill);
 
   const total = document.createElement("h5");
   total.setAttribute("class", "text-center mt-3");
-  total.textContent =  `Total: ${totalBill}`;
+  total.textContent = `Total: ${totalBill}`;
 
   col.append(div, flexDiv, total);
   row.append(col);

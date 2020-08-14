@@ -10,7 +10,6 @@ let restaurant = loadData();
 let index = restaurant.length - 1;
 let menuId = 1;
 
-console.log("first restaurant", restaurant);
 
 window.addEventListener("DOMContentLoaded", () => {
   const addRestaurant = document.getElementById("addRestaurant");
@@ -26,7 +25,6 @@ const getData = () => {
 };
 
 const addData = (name, image) => {
-  console.log("add Restaurant", restaurant);
   index++;
 
   let payload = {
