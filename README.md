@@ -26,8 +26,8 @@ menu_page_with_cart
 bill_page
 ![bill_page](https://github.com/ahmedrzakhan/Food-Delivery-System/blob/master/Images/bill_page.png)
 
-## Authors 
+## Authors
 #### Ahmed Raza Khan
-```https://github.com/ahmedrzakhan``` 
+Github: [@Ahmed](https://github.com/ahmedrzakhan)<br>
 #### Partha Nayak
-```https://github.com/parthasn```
+Github: [@Partha](https://github.com/parthasn)
